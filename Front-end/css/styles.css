@@ -7,6 +7,12 @@ div {
     border-radius: 4px;
 }
 
+nav {
+    background-color: silver;
+    border-color: black;
+    border-radius: 5px;
+}
+
 /*.putid {
     position: relative;
     left: 61px;
