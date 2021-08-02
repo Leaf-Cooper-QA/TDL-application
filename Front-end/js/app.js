@@ -13,6 +13,8 @@
     let put2 = document.querySelector("#put2");
     let deleteid = document.querySelector("#deleteid");
 
+    let deletepara = document.querySelector("#deletepara")
+
     let myGetAll = function() {
 
     }
@@ -34,6 +36,13 @@
     putbtn.addEventListener("click",() => myPut(), false);
 
     let myDelete = function() {
+        fetch(`https://dummywebsite.com/data/${deleteid.value}`, {
+            method: `delete`})
+            .then((data) =>{
+                /* deletes automatically, return data to the table*/
+                deletepara.append(`data with id: ${deleteid.value} deleted`);
+            })
+            .catch(err => console.log(`something went wrong with error message: ${err}`))
 
     }
     deletebtn.addEventListener("click",() => myDelete(), false);

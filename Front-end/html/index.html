@@ -9,13 +9,22 @@
 </head>
 <body>
     <h1>Home page</h1>
+    
+    <nav>
+
+    </nav>
+
     <p>Lorem ipsum</p>
 
+
+    <div id="getall">
     <h2>Get All Data</h2>
     <p>Lorem ipsum</p>
     <button id="getallbtn">Get All</button>
     <table id="getalltable"></table>
+    </div>
 
+    <div id="getone">
     <h2>Get One Data</h2>
     <p>Lorem ipsum</p>
     <label for="getoneid">id=</label>
@@ -23,7 +32,9 @@
     <br>
     <button id="getonetn">Get One</button>
     <table id="getonetable"></table>
+    </div>
 
+    <div id="post">
     <h2>Post Data</h2>
     <p>Lorem ipsum</p>
     <label for="post1">element1=</label>
@@ -34,11 +45,13 @@
     <br>
     <button id="postbtn">Post Data</button>
     <table id="posttable"></table>
+    </div>
 
+    <div id="put">
     <h2>Put Data</h2>
     <p>Lorem ipsum</p>
-    <label for="putid">id=</label>
-    <input type="number" name="putid" id="putid">
+    <label for="putid" class="putid">id=</label>
+    <input type="number" name="putid" id="putid" class="putid">
     <br>
     <label for="put1">element1=</label>
     <input type="text" name ="put1" id="put1">
@@ -48,14 +61,17 @@
     <br>
     <button id="putbtn">Put Data</button>
     <table id="puttable"></table>
+    </div>
 
+    <div id="delete">
     <h2>Delete Data</h2>
     <p>Lorem ipsum</p>
     <label for="deleteid">id=</label>
     <input type="number" name="deleteid" id="deleteid">
     <br>
     <button id="deletebtn">Delete Data</button>
-    <table id="deletetable"></table>
+    <p id="deletepara"></p>
+    </div>
 
     <script src="../js/app.js"></script>
 </body>
