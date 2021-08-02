@@ -3,6 +3,14 @@
 }
 
 div {
-    background-color: darkgrey;
+    background-color: lightgrey;
     border-radius: 4px;
 }
+
+/*.putid {
+    position: relative;
+    left: 61px;
+} 
+This alligns the text box but it's sloppy and it's changing later anyway when placeholders update
+Could instead make every single input align to the right instead, then offset it massively so that it's on the left but the boxes line up 
+*/
