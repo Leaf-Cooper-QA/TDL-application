@@ -15,6 +15,8 @@
 
     let deletepara = document.querySelector("#deletepara")
 
+    /* make use of the delete skeleton and also js file from the Fetch API task*/
+
     let myGetAll = function() {
 
     }
