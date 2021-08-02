@@ -36,13 +36,14 @@
     putbtn.addEventListener("click",() => myPut(), false);
 
     let myDelete = function() {
+        
         fetch(`https://dummywebsite.com/data/${deleteid.value}`, {
             method: `delete`})
             .then((data) =>{
-                /* deletes automatically, return data to the table*/
-                deletepara.append(`data with id: ${deleteid.value} deleted`);
+                 /*deletes automatically, return data to the table*/
+                deletepara.append(document.createTextNode(`data with id: ${deleteid.value} deleted`));
             })
-            .catch(err => console.log(`something went wrong with error message: ${err}`))
+            .catch(err => console.log(`something went wrong with error message: ${err}`)) 
 
     }
     deletebtn.addEventListener("click",() => myDelete(), false);
