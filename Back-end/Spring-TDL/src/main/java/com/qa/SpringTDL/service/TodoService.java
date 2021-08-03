@@ -22,9 +22,9 @@ public class TodoService {
 		return this.repo.findAll();
 	}
 	
-	public Todo getone(Long id) {
-		return this.repo.getById(id);
-	}
+//	public Todo getone(Long id) {
+//		return this.repo.getById(id);
+//	}
 	
 	public Todo post(Todo todo) {
 		return this.repo.saveAndFlush(todo);
@@ -35,8 +35,8 @@ public class TodoService {
 		return id;
 	}
 	
-	public Todo update(Long id, Todo todo) {
-		Todo updated = this.repo.getById(id);
+	public Todo update(Todo todo) {
+		Todo updated = this.repo.getById(todo.getId());
 		updated.setName(todo.getName());
 		updated.setDescription(todo.getDescription());
 		updated.setTime(todo.getTime());
