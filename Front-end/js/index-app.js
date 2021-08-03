@@ -15,6 +15,9 @@
     let put3 = document.querySelector("#put3");
     let deleteid = document.querySelector("#deleteid");
 
+    let getallpara = document.querySelector("#getallpara")
+    let postpara=document.querySelector("#postpara")
+    let putpara=document.querySelector("#putpara")
     let deletepara = document.querySelector("#deletepara")
 
     /* make use of the delete skeleton and also js file from the Fetch API task*/
@@ -25,6 +28,8 @@
             method: `get`})
             .then((data) =>{
                 /*fill data into table*/
+                getallpara.append(document.createTextNode(`data retrieved`));
+                getallpara.append(document.createElement("br"));
             })
             .catch(err => console.log(`something went wrong with error message: ${err}`)) 
 
@@ -55,7 +60,10 @@
         })
         .then((data) => {
             /*fill data into table*/
+            postpara.append(document.createTextNode(`data sent`));
+            postpara.append(document.createElement("br"));
         })
+        .catch(err => console.log(`something went wrong with error message: ${err}`)) 
 
     }
     postbtn.addEventListener("click",() => myPost(), false);
@@ -71,6 +79,12 @@
                 time: put3.value
             })
         })
+        .then((data) =>{
+            /*fill data into table*/
+            putpara.append(document.createTextNode(`data updated`));
+            putpara.append(document.createElement("br"));
+        })
+        .catch(err => console.log(`something went wrong with error message: ${err}`)) 
 
     }
     putbtn.addEventListener("click",() => myPut(), false);
@@ -83,9 +97,10 @@
             headers: {"Content-type": "application/json; charset=UTF-8"},  
             body:JSON.stringify(deleteid.value)  
         })
-            .then((data) =>{
-                 /*deletes automatically, return data to the table*/
+            .then(() =>{
+                /*deletes automatically, return data to the table*/
                 deletepara.append(document.createTextNode(`data with id: ${deleteid.value} deleted`));
+                deletepara.append(document.createElement("br"));
             })
             .catch(err => console.log(`something went wrong with error message: ${err}`)) 
 
