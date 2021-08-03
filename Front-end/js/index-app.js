@@ -8,14 +8,17 @@
     let getid = document.querySelector("#getoneid");
     let post1 = document.querySelector("#post1");
     let post2 = document.querySelector("#post2");
+    let post3 = document.querySelector("#post3");
     let putid = document.querySelector("#putid");
     let put1 = document.querySelector("#put1");
     let put2 = document.querySelector("#put2");
+    let put3 = document.querySelector("#put3");
     let deleteid = document.querySelector("#deleteid");
 
     let deletepara = document.querySelector("#deletepara")
 
     /* make use of the delete skeleton and also js file from the Fetch API task*/
+    /* URL is local host stuff defined by java controller */
 
     let myGetAll = function() {
 
