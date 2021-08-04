@@ -15,10 +15,14 @@
     let put3 = document.querySelector("#put3");
     let deleteid = document.querySelector("#deleteid");
 
-    let getallpara = document.querySelector("#getallpara")
-    let postpara=document.querySelector("#postpara")
-    let putpara=document.querySelector("#putpara")
-    let deletepara = document.querySelector("#deletepara")
+    let getallpara = document.querySelector("#getallpara");
+    let postpara=document.querySelector("#postpara");
+    let putpara=document.querySelector("#putpara");
+    let deletepara = document.querySelector("#deletepara");
+
+    let getalltable = document.querySelector("#getalltable");
+    let posttable = document.querySelector("#posttable");
+    let puttable = document.querySelector("#puttable")
 
     /* make use of the delete skeleton and also js file from the Fetch API task*/
     /* URL is local host stuff defined by java controller */
@@ -28,7 +32,53 @@
             method: `get`})
             .then(res => res.json())
             .then(data =>{
-                /*fill data into table*/
+
+                getalltable.innerHTML=``;
+
+                let tablehead = document.createElement("tr");
+
+                let idhead = document.createElement("th");
+                idhead.textContent=`id`;
+                tablehead.append(idhead);
+
+                let namehead = document.createElement("th");
+                namehead.textContent=`name`;
+                tablehead.append(namehead);
+
+                let deschead = document.createElement("th");
+                deschead.textContent=`description`;
+                tablehead.append(deschead);
+
+                let timehead = document.createElement("th");
+                timehead.textContent=`time estimate`;
+                tablehead.append(timehead);
+
+                getalltable.append(tablehead);
+
+                for (const element of data) {
+                    let tablerow = document.createElement("tr");
+
+                    let iddata = document.createElement("td");
+                    iddata.textContent=element.id;
+                    tablerow.append(iddata);
+        
+                    let namedata = document.createElement("td");
+                    namedata.textContent=element.name;
+                    tablerow.append(namedata);
+        
+                    let descdata = document.createElement("td");
+                    descdata.textContent=element.description;
+                    tablerow.append(descdata);
+        
+                    let timedata = document.createElement("td");
+                    timedata.textContent=element.time;
+                    tablerow.append(timedata);
+
+                    getalltable.append(tablerow);
+
+                }
+
+
                 console.log(data)
                 getallpara.append(document.createTextNode(`data retrieved`));
                 getallpara.append(document.createElement("br"));
@@ -62,10 +112,49 @@
         })
         .then(res => res.json())
         .then((data) => {
+            posttable.innerHTML=``;
             /*fill data into table*/
+            let tablehead = document.createElement("tr");
+
+            let idhead = document.createElement("th");
+            idhead.textContent=`id`;
+            tablehead.append(idhead);
+
+            let namehead = document.createElement("th");
+            namehead.textContent=`name`;
+            tablehead.append(namehead);
+
+            let deschead = document.createElement("th");
+            deschead.textContent=`description`;
+            tablehead.append(deschead);
+
+            let timehead = document.createElement("th");
+            timehead.textContent=`time estimate`;
+            tablehead.append(timehead);
+
+            let tablerow = document.createElement("tr");
+
+            let iddata = document.createElement("td");
+            iddata.textContent=data.id;
+            tablerow.append(iddata);
+
+            let namedata = document.createElement("td");
+            namedata.textContent=data.name;
+            tablerow.append(namedata);
+
+            let descdata = document.createElement("td");
+            descdata.textContent=data.description;
+            tablerow.append(descdata);
+
+            let timedata = document.createElement("td");
+            timedata.textContent=data.time;
+            tablerow.append(timedata);
+
+            posttable.append(tablehead);
+            posttable.append(tablerow);
+
             console.log(data)
-            postpara.append(document.createTextNode(`data sent`));
-            postpara.append(document.createElement("br"));
+            postpara.innerHTML=`data sent`;
         })
         .catch(err => console.log(`something went wrong with error message: ${err}`)) 
 
@@ -86,6 +175,46 @@
         .then(res => res.json())
         .then((data) =>{
             /*fill data into table*/
+            puttable.innerHTML=``;
+            /*fill data into table*/
+            let tablehead = document.createElement("tr");
+
+            let idhead = document.createElement("th");
+            idhead.textContent=`id`;
+            tablehead.append(idhead);
+
+            let namehead = document.createElement("th");
+            namehead.textContent=`name`;
+            tablehead.append(namehead);
+
+            let deschead = document.createElement("th");
+            deschead.textContent=`description`;
+            tablehead.append(deschead);
+
+            let timehead = document.createElement("th");
+            timehead.textContent=`time estimate`;
+            tablehead.append(timehead);
+
+            let tablerow = document.createElement("tr");
+
+            let iddata = document.createElement("td");
+            iddata.textContent=data.id;
+            tablerow.append(iddata);
+
+            let namedata = document.createElement("td");
+            namedata.textContent=data.name;
+            tablerow.append(namedata);
+
+            let descdata = document.createElement("td");
+            descdata.textContent=data.description;
+            tablerow.append(descdata);
+
+            let timedata = document.createElement("td");
+            timedata.textContent=data.time;
+            tablerow.append(timedata);
+
+            puttable.append(tablehead);
+            puttable.append(tablerow);
             console.log(data)
             putpara.append(document.createTextNode(`data updated`));
             putpara.append(document.createElement("br"));
@@ -97,7 +226,6 @@
 
     let myDelete = function() {
         
-        /*this is the correct sorta thing for the url but details might be wrong*/
         fetch(`http://localhost:8080/delete`, {
             method: `delete`,
             headers: {"Content-type": "application/json; charset=UTF-8"},  
@@ -107,9 +235,11 @@
         .then((data) =>{
             /*deletes automatically, return data to the table*/
             console.log(data)
-            deletepara.append(document.createTextNode(`data with id: ${data} deleted`));
-            /*is other situations, might need data.value instead of just data*/
-            deletepara.append(document.createElement("br"));
+            deletepara.innerHTML = `data with id: ${data} deleted`;
+            
+            /*in other situations, might need data.value instead of just data*/
+            /*other outputs need to be in tables, hopefully can just do e.g. innerHTML = postTable */
+            
         })
         .catch(err => console.log(`something went wrong with error message: ${err}`)) 
 
