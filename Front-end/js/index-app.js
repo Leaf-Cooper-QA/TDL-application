@@ -26,7 +26,8 @@
     let myGetAll = function() {
         fetch(`http://localhost:8080/getall`, {
             method: `get`})
-            .then((data) =>{
+            .then(res => res.json())
+            .then(data =>{
                 /*fill data into table*/
                 console.log(data)
                 getallpara.append(document.createTextNode(`data retrieved`));
@@ -59,8 +60,10 @@
                 time: post3.value
             })
         })
+        .then(res => res.json())
         .then((data) => {
             /*fill data into table*/
+            console.log(data)
             postpara.append(document.createTextNode(`data sent`));
             postpara.append(document.createElement("br"));
         })
@@ -80,8 +83,10 @@
                 time: put3.value
             })
         })
+        .then(res => res.json())
         .then((data) =>{
             /*fill data into table*/
+            console.log(data)
             putpara.append(document.createTextNode(`data updated`));
             putpara.append(document.createElement("br"));
         })
@@ -98,12 +103,15 @@
             headers: {"Content-type": "application/json; charset=UTF-8"},  
             body:JSON.stringify(deleteid.value)  
         })
-            .then(() =>{
-                /*deletes automatically, return data to the table*/
-                deletepara.append(document.createTextNode(`data with id: ${deleteid.value} deleted`));
-                deletepara.append(document.createElement("br"));
-            })
-            .catch(err => console.log(`something went wrong with error message: ${err}`)) 
+        .then(res => res.json())
+        .then((data) =>{
+            /*deletes automatically, return data to the table*/
+            console.log(data)
+            deletepara.append(document.createTextNode(`data with id: ${data} deleted`));
+            /*is other situations, might need data.value instead of just data*/
+            deletepara.append(document.createElement("br"));
+        })
+        .catch(err => console.log(`something went wrong with error message: ${err}`)) 
 
     }
     deletebtn.addEventListener("click",() => myDelete(), false);
