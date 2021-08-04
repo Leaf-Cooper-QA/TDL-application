@@ -28,6 +28,7 @@
             method: `get`})
             .then((data) =>{
                 /*fill data into table*/
+                console.log(data)
                 getallpara.append(document.createTextNode(`data retrieved`));
                 getallpara.append(document.createElement("br"));
             })
