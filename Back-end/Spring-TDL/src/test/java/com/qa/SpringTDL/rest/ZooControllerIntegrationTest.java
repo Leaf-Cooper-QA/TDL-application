@@ -1,9 +1,15 @@
 package com.qa.SpringTDL.rest;
 
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,21 +36,63 @@ public class ZooControllerIntegrationTest {
 	
 	@Test
 	public void testCreate() throws Exception {
+		
+		//set up
 		Todo todo = new Todo("Do dishes", "Clean and dry dirty dishes", 10L);
 		
 		String todoAsJson = this.mapper.writeValueAsString(todo);
+
 		
-		RequestBuilder mockRequest = post("/post").contentType(MediaType.APPLICATION_JSON).content(todoAsJson);
+		//post
+		RequestBuilder mockPostRequest = post("/post").contentType(MediaType.APPLICATION_JSON).content(todoAsJson);
 		
 		Todo savedTodo = new Todo(1L, "Do dishes", "Clean and dry dirty dishes", 10L);
 		
 		String savedTodoAsJson = this.mapper.writeValueAsString(savedTodo);
 		
-		ResultMatcher matchStatus = status().isCreated();
+		ResultMatcher matchStatusCreated = status().isCreated();
 		
-		ResultMatcher matchBody = content().json(savedTodoAsJson);
+		ResultMatcher matchBodyPost = content().json(savedTodoAsJson);
 		
-		this.mock.perform(mockRequest).andExpect(matchBody).andExpect(matchStatus);
+		this.mock.perform(mockPostRequest).andExpect(matchBodyPost).andExpect(matchStatusCreated);
+		
+		
+		//getall
+		RequestBuilder mockGetRequest = get("/getall");
+		
+		List<Todo> todoList = new ArrayList<>();
+		todoList.add(savedTodo);
+		
+		String todoListAsJson = this.mapper.writeValueAsString(todoList);
+		
+		ResultMatcher matchStatusOk = status().isOk();
+		
+		ResultMatcher matchBodyGet = content().json(todoListAsJson);
+		this.mock.perform(mockGetRequest).andExpect(matchBodyGet).andExpect(matchStatusOk);
+		
+		//put
+		Todo updateTodo = new Todo(1L, "Vacuum", "Vacuum upstairs and downstairs", 25L);
+		
+		String updateTodoAsJson = this.mapper.writeValueAsString(updateTodo);
+		
+		RequestBuilder mockPutRequest = put("/put").contentType(MediaType.APPLICATION_JSON).content(updateTodoAsJson);
+		
+		
+		ResultMatcher matchBodyPut = content().json(updateTodoAsJson);
+		this.mock.perform(mockPutRequest).andExpect(matchBodyPut).andExpect(matchStatusOk);
+		
+		//delete
+		Long deleteId = 1L;
+		
+		String idAsJson = this.mapper.writeValueAsString(deleteId);
+		
+		RequestBuilder mockDeleteRequest = delete("/delete").contentType(MediaType.APPLICATION_JSON).content(idAsJson);
+		
+		ResultMatcher matchBodyDelete = content().json(idAsJson);
+		
+		this.mock.perform(mockDeleteRequest).andExpect(matchBodyDelete).andExpect(matchStatusOk);
+		
+		
 	}
 	
 
