@@ -38,19 +38,19 @@
                 let tablehead = document.createElement("tr");
 
                 let idhead = document.createElement("th");
-                idhead.textContent=`id`;
+                idhead.textContent=`Id`;
                 tablehead.append(idhead);
 
                 let namehead = document.createElement("th");
-                namehead.textContent=`name`;
+                namehead.textContent=`Name`;
                 tablehead.append(namehead);
 
                 let deschead = document.createElement("th");
-                deschead.textContent=`description`;
+                deschead.textContent=`Description`;
                 tablehead.append(deschead);
 
                 let timehead = document.createElement("th");
-                timehead.textContent=`time estimate`;
+                timehead.textContent=`Time estimate`;
                 tablehead.append(timehead);
 
                 getalltable.append(tablehead);
@@ -80,8 +80,7 @@
 
 
                 console.log(data)
-                getallpara.append(document.createTextNode(`data retrieved`));
-                getallpara.append(document.createElement("br"));
+                getallpara.innerHTML(`data retrieved`);
             })
             .catch(err => console.log(`something went wrong with error message: ${err}`)) 
 
@@ -117,19 +116,19 @@
             let tablehead = document.createElement("tr");
 
             let idhead = document.createElement("th");
-            idhead.textContent=`id`;
+            idhead.textContent=`Id`;
             tablehead.append(idhead);
 
             let namehead = document.createElement("th");
-            namehead.textContent=`name`;
+            namehead.textContent=`Name`;
             tablehead.append(namehead);
 
             let deschead = document.createElement("th");
-            deschead.textContent=`description`;
+            deschead.textContent=`Description`;
             tablehead.append(deschead);
 
             let timehead = document.createElement("th");
-            timehead.textContent=`time estimate`;
+            timehead.textContent=`Time estimate`;
             tablehead.append(timehead);
 
             let tablerow = document.createElement("tr");
@@ -180,19 +179,19 @@
             let tablehead = document.createElement("tr");
 
             let idhead = document.createElement("th");
-            idhead.textContent=`id`;
+            idhead.textContent=`Id`;
             tablehead.append(idhead);
 
             let namehead = document.createElement("th");
-            namehead.textContent=`name`;
+            namehead.textContent=`Name`;
             tablehead.append(namehead);
 
             let deschead = document.createElement("th");
-            deschead.textContent=`description`;
+            deschead.textContent=`Description`;
             tablehead.append(deschead);
 
             let timehead = document.createElement("th");
-            timehead.textContent=`time estimate`;
+            timehead.textContent=`Time estimate`;
             tablehead.append(timehead);
 
             let tablerow = document.createElement("tr");
@@ -215,9 +214,8 @@
 
             puttable.append(tablehead);
             puttable.append(tablerow);
-            console.log(data)
-            putpara.append(document.createTextNode(`data updated`));
-            putpara.append(document.createElement("br"));
+            console.log(data);
+            putpara.innerHTML=`data updated`;
         })
         .catch(err => console.log(`something went wrong with error message: ${err}`)) 
 

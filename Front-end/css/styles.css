@@ -13,6 +13,12 @@ nav {
     border-radius: 5px;
 }
 
+table, th, td {
+    border: black 1px solid;
+    border-collapse: collapse;
+    padding: 10px;
+}
+
 /*.putid {
     position: relative;
     left: 61px;
