@@ -26,7 +26,7 @@ import com.qa.SpringTDL.domain.Todo;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-public class ZooControllerIntegrationTest {
+class ZooControllerIntegrationTest {
 	
 	@Autowired
 	private MockMvc mock;
@@ -35,7 +35,7 @@ public class ZooControllerIntegrationTest {
 	private ObjectMapper mapper;
 	
 	@Test
-	public void testCreate() throws Exception {
+	void testCreate() throws Exception {
 		
 		//set up
 		Todo todo = new Todo("Do dishes", "Clean and dry dirty dishes", 10L);
