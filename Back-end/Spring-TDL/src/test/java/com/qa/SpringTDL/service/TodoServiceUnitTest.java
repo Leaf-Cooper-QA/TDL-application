@@ -15,7 +15,7 @@ import com.qa.SpringTDL.domain.Todo;
 import com.qa.SpringTDL.repo.TodoRepo;
 
 @SpringBootTest
-public class TodoServiceUnitTest {
+class TodoServiceUnitTest {
 	
 	@MockBean
 	private TodoRepo repo;
@@ -24,7 +24,7 @@ public class TodoServiceUnitTest {
 	private TodoService service;
 	
 	@Test
-	public void testCreateUnit() {
+	void testCreateUnit() {
 		
 		Todo item = new Todo("do dishes","clean and dry dirty dishes", 10L);
 		Todo itemWithId = new Todo(1L, "do dishes","clean and dry dirty dishes", 10L);
@@ -38,7 +38,7 @@ public class TodoServiceUnitTest {
 	}
 	
 	@Test
-	public void testReadAll() {
+	void testReadAll() {
 
 		Todo item1 = new Todo(1L, "do dishes","clean and dry dirty dishes", 10L);
 		Todo item2 = new Todo(2L, "vacuum","vacuum upstairs and downstairs", 25L);
@@ -56,7 +56,7 @@ public class TodoServiceUnitTest {
 	
 	//I'm suspicious of this one, it works but something feels off
 	@Test
-	public void testUpdateUnit() {
+	void testUpdateUnit() {
 		//these have the same id, yes it's deliberate, not it's not what I'm suspicious of
 		Todo item1 = new Todo(1L, "do dishes","clean and dry dirty dishes", 10L);
 		Todo item2 = new Todo(1L, "vacuum","vacuum upstairs and downstairs", 25L);
@@ -72,7 +72,7 @@ public class TodoServiceUnitTest {
 	}
 	
 	@Test
-	public void testDeleteUnit() {
+	void testDeleteUnit() {
 		Long id = 1L;
 		
 		assertThat(this.service.delete(id)).isEqualTo(id);

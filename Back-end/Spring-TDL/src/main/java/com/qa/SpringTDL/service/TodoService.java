@@ -22,9 +22,6 @@ public class TodoService {
 		return this.repo.findAll();
 	}
 	
-//	public Todo getone(Long id) {
-//		return this.repo.getById(id);
-//	}
 	
 	public Todo post(Todo todo) {
 		return this.repo.saveAndFlush(todo);
