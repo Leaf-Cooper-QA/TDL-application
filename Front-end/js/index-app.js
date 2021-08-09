@@ -80,7 +80,7 @@
 
 
                 console.log(data)
-                getallpara.innerHTML(`data retrieved`);
+                getallpara.innerHTML=`data retrieved`;
             })
             .catch(err => console.log(`something went wrong with error message: ${err}`)) 
 
