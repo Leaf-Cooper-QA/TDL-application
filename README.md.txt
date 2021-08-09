@@ -1,13 +1,14 @@
-To-Do List Web Application {(TDL}) by Leaf Cooper
+##To-Do List Web Application (TDL) by Leaf Cooper
 
 This is a Todo List Web Application constructed using a combination of Java, HTML, css and JavaScript. This project allows the user to interact via a webpage with a Todo list, with CRUD functionality
 
-Required software to run this application:
+#Required software to run this application:
 A web browser such as Chrome and a stable internet connection
 A java IDE, Eclispe is recommended
 A html/, js and css IDE, Visual Code Studio is recommended
 MySQL
 
+#Setup
 This project is split into two major elements; to view, edit and run the front end, open the files found in the front-end folder in VCS
 From the html files, you can load the webpage by right clicking anywhere within the file and selecting "Open with Live Server"
 
@@ -19,6 +20,7 @@ Once that is set up, right click the root folder, select Run As, then Spring Boo
 Wait for the system to initialise, as will be visible in the console.
 Once the system is initialised, the webpage can be used
 
+#information
 The website contains the following:
 A nav bar with links to the home page and a small about page
 An element to view all data in the database, in this case the entire Todo list
@@ -28,6 +30,7 @@ An element to delete data, which requires only the id of the task you plan on de
 
 Each element will display a relevant output once submitted
 
+#about
 This project was built with Maven for dependancy management, and Github for versioning
 
 Author: Leaf Cooper
