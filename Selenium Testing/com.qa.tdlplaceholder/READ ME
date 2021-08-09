@@ -1,0 +1,5 @@
+OK SO, this is the basic structure of the front end testing with Selenium etc, but these aren't in the right file location for github stuff.
+Problem is we don't know what we want the final structure to look like with SpringBoot because we still haven't covered it yet.
+So once we do have the actual structure up and we know what we want it to look it, copy this code into the correct location either in the files or raw paste the code.
+
+Current state: all front end tested, no real way to test the buttons etc but have them linked by ID and functions implemented
